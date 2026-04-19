@@ -1,0 +1,191 @@
+LAB-1
+mkdir git-demo 
+cd git-demo 
+git init 
+ls -a 
+git config --global user.name "UserName" 
+git config --global user.email "UserEmail" 
+echo "1st git experiment" > README.txt  
+git status 
+git add README.txt 
+git commit -m "Initial Commit" 
+echo "Git tracks file changes" >> README.txt 
+git add README.txt 
+git commit -m "Updated README file" 
+git log
+
+LAB-2
+mkdir git-conflict  
+cd git-conflict 
+git init 
+echo "1st line from main branch" > file.txt 
+git add . 
+git commit -m "1st line added" 
+git branch feature-branch
+git checkout feature-branch
+echo "2nd line from feature-branch" >> file.txt 
+git add . 
+git commit -m "2nd line from branch" 
+git checkout main
+echo "2nd line from main branch" >> file.txt 
+git add . 
+git commit -m "2nd line from main" 
+git merge feature-branch 
+git mergetool 
+git status
+git add . 
+git commit -m "Merge conflict resolved" 
+git log –oneline
+
+LAB-3
+git config --global user.name "UserName"
+git config --global user.email "UserEmail" 
+git clone <repository-url>.git
+cd git-lab-demo
+git add main.py
+git commit -m "Add main.py file" 
+git push origin main
+git pull origin main
+git fetch origin 
+git merge origin/main
+
+LAB-4
+git clone <repository-url>.git 
+cd git-pull-requests 
+echo "File created locally" > file.txt 
+git status
+git add file.txt
+git push origin main
+git branch new-feature
+git checkout new-feature
+echo "Change made in feature branch" > file.txt 
+echo "Feature branch file" > feature.txt
+git status
+git add .
+git commit -m "Changes made in feature branch"
+git push origin new-feature
+git checkout main
+git pull origin main
+git log –oneline
+git branch -d new-feature
+git push origin -d new-feature
+
+LAB-5
+git clone <repository-url>.git 
+cd git-tagging 
+git pull 
+ls
+git tag v1.0 
+git tag 
+git tag -a v1.2 -m "v1.2 created"
+git tag
+git show v1.0 
+git tag -l "v1.*"
+git push origin v1.0 
+git tag v2.0
+git push - -tags
+git tag -d v1.0 
+git tag 
+git push origin -d v1.0
+
+LAB-6
+mvn –version 
+mvn archetype:generate 
+maven-archetype-quickstart
+groupId: com.bnmit
+artifactId: sample-app
+version: 1.0-SNAPSHOT   (just press Enter)
+package: com.bnmit      (press Enter)
+cd sample-app 
+mvn package 
+mvn clean 
+mvn site 
+sample-app/src/main/java/com/bnmit/ 
+Replace App.java content with BankService code. 
+mvn clean 
+mvn package 
+cd target
+try this ------>java -cp sample-app-1.0-SNAPSHOT.jar com.bnmit.BankService 
+if not----->java -cp classes com.bnmit.BankService
+
+LAB-7
+Step 9: Add Build Step 
+• Select Execute Windows Batch Command 
+• Enter: 
+o javac BankService.java 
+o java BankService 
+
+LAB-8
+ngrok http 8080
+ngrok config add-authtoken YOUR_TOKEN
+https://abcd1234.ngrok.io/github-webhook/
+application/json
+javac BankService.java 
+java BankService
+
+LAB-9/LAB-10 check jenkinsfile
+
+LAB-15
+docker --version
+docker ps
+docker ps -a
+docker pull nginx
+docker run -d -p 8080:80 nginx
+docker ps
+docker stop 8e3f11837f2d
+docker rm 8e3f11837f2d
+docker ps
+
+LAB-16
+mkdir docker-app
+cd docker-app
+mkdir sample
+mkdir web
+cd C:\Users\HP\docker-app\sample
+docker build -t my-python-app .
+cd ..\web
+docker build -t my-python-web .
+docker run my-python-app
+docker run -p 5000:5020 my-python-web
+docker images
+docker ps
+docker ps -a
+
+LAB-17
+docker run -d nginx
+docker ps
+docker run -d -p 8081:80 nginx
+docker volume create myvolume
+docker volume create dvolume
+docker volume ls
+docker run -it -v myvolume:/data ubuntu bash
+cd /data
+echo "Docker Volume Persistence Test" > test.txt
+exit
+docker run -it -v myvolume:/data ubuntu bash
+cat /data/test.txt
+docker run -d -p 8086:80 -v myvolume:/usr/share/nginx/html nginx
+docker run -it -v myvolume:/data ubuntu bash
+echo "<h1>Persistent Web Page</h1>" > /data/index.html
+exit
+docker run -d -p 8083:80 -v myvolume:/usr/share/nginx/html nginx
+
+lab-18
+mkdir docker-java-app
+cd docker-java-app
+mkdir src
+type nul > Dockerfile
+docker pull eclipse-temurin:17-jdk
+docker build -t my-java-app .
+docker images
+docker run my-java-app
+docker login
+docker tag my-java-app arathivenkatesh/my-java-app:latest
+docker push arathivenkatesh/my-java-app:latest
+docker pull arathivenkatesh/my-java-app:latest
+docker run arathivenkatesh/my-java-app
+
+  
+
+
+
