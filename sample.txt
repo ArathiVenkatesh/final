@@ -125,6 +125,38 @@ java BankService
 
 LAB-9/LAB-10 check jenkinsfile
 
+LAB-11
+Java Project in Eclipse named CalculatorProject. 
+src---package named calculatorexample.
+Java class Calculator.java inside the package.
+project → Build Path → Add Libraries → JUnit (choose JUnit 5).
+src → New → JUnit Test Case → name it CalculatorTest. 
+Right-click test file → Run As → JUnit Test to execute tests.
+
+LAB-12
+mvn -version
+mvn archetype:generate
+com.bnmit 
+sample-app 
+1.0-SNAPSHOT 
+com.bnmit 
+cd sample-app 
+mvn package
+code .
+src/main/java/com/bnmit/ -----add a program
+src/test/java/com/bnmit/ -----test program
+mvn clean test  
+
+LAB-13 
+same as 12---maven project->push to github->integrate with jenkins by 
+choosing mavens project option and making necessary changes.
+build settings-->
+pom.xml
+package
+configure post biuld actions after 1st build
+archive the artifacts---->target/*.jar
+save->build
+
 LAB-15
 docker --version
 docker ps
