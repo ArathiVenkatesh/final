@@ -226,6 +226,55 @@ freestyle jenkins job
 Execute windows batch commands
 docker build -t my-java-app .
 docker run -d --rm my-java-app
+
+LAB-20
+jenkins window bash
+mvn clean package && docker build -t lab20-app . && docker run --rm lab20-app
+
+
+# Step 1: Go to project folder
+cd lab20
+
+
+# Step 2: Run Maven Test
+mvn clean test
+
+
+# Step 3: Package the project (generate JAR)
+mvn clean package
+
+
+# Step 4: Initialize Git and push to GitHub
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/ArathiVenkatesh/LAB20.git
+git push -u origin main
+
+
+# Step 5: Jenkins automatically pulls code from GitHub
+# (Configured in Jenkins job)
+
+
+# Step 6: Jenkins Build Step (Execute Windows Batch Command)
+
+mvn clean package && docker build -t lab20-app . && docker run --rm lab20-app
+
+
+# Step 7: Jenkins executes pipeline
+# - Runs Maven tests
+# - Builds JAR file
+# - Builds Docker image
+# - Runs Docker container
+
+
+# Step 8: Final Output observed in Jenkins console
+
+Addition: 6
+Subtraction: 2
+Multiplication: 6
+Division: 2
   
 
 
