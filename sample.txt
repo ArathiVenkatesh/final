@@ -220,6 +220,12 @@ docker push arathivenkatesh/my-java-app:latest
 docker pull arathivenkatesh/my-java-app:latest
 docker run arathivenkatesh/my-java-app
 
+LAB-19
+same as 18 but push the project to github.
+freestyle jenkins job
+Execute windows batch commands
+docker build -t my-java-app .
+docker run -d --rm my-java-app
   
 
 
